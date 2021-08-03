@@ -47,6 +47,14 @@ public class FripperController : MonoBehaviour
         {
             SetAngle(this.defaultAngle);
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SetAngle(this.flickAngle);
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            SetAngle(this.defaultAngle);
+        }
     }
 
     //フリッパーの傾きを設定

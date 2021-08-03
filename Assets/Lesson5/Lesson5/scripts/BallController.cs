@@ -12,6 +12,7 @@ public class BallController: MonoBehaviour
     //ゲームオーバを表示するテキスト
     private GameObject gameoverText;
     private GameObject pointText;
+    [SerializeField]private GameObject point2Text;
     RectTransform m_RectTransform;
     // Use this for initialization
     void Start()
@@ -32,7 +33,8 @@ public class BallController: MonoBehaviour
         {
             //GameoverTextにゲームオーバを表示
             this.gameoverText.GetComponent<Text>().text = "Game Over";
-            this.m_RectTransform.anchoredPosition3D = new Vector3(-410, -1124, 0);
+            pointText.SetActive(false);
+            this.point2Text.GetComponent<Text>().text = "得点：" + point;
         }
     }
     void OnCollisionEnter(Collision collision)
@@ -44,6 +46,14 @@ public class BallController: MonoBehaviour
         if (collision.gameObject.tag == "LargeStarTag")
         {
             point += 20;
+        }
+        if (collision.gameObject.tag == "LargeCloudTag")
+        {
+            point += 5;
+        }
+        if (collision.gameObject.tag == "SmallCloudTag")
+        {
+            point += 1;
         }
     }
 }
