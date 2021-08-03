@@ -23,13 +23,14 @@ public class BallController: MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {  
+        pointText.GetComponent<Text>().text = "得点：" + point;
         //ボールが画面外に出た場合
         if (this.transform.position.z < this.visiblePosZ)
         {
             //GameoverTextにゲームオーバを表示
             this.gameoverText.GetComponent<Text>().text = "Game Over";
-            pointText.GetComponent<Text>().text = "得点：" + point;
+          
         }
     }
     void OnCollisionEnter(Collision collision)
