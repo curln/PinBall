@@ -47,11 +47,11 @@ public class FripperController : MonoBehaviour
         {
             SetAngle(this.defaultAngle);
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             SetAngle(this.flickAngle);
         }
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.DownArrow))
         {
             SetAngle(this.defaultAngle);
         }
