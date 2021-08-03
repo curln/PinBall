@@ -12,13 +12,15 @@ public class BallController: MonoBehaviour
     //ゲームオーバを表示するテキスト
     private GameObject gameoverText;
     private GameObject pointText;
-
+    RectTransform m_RectTransform;
     // Use this for initialization
     void Start()
     {
+       
         //シーン中のGameOverTextオブジェクトを取得
         this.gameoverText = GameObject.Find("GameOverText");
         pointText = GameObject.Find("PointText");
+        m_RectTransform = pointText.GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
@@ -30,7 +32,7 @@ public class BallController: MonoBehaviour
         {
             //GameoverTextにゲームオーバを表示
             this.gameoverText.GetComponent<Text>().text = "Game Over";
-          
+            this.m_RectTransform.anchoredPosition3D = new Vector3(-410, -1124, 0);
         }
     }
     void OnCollisionEnter(Collision collision)
